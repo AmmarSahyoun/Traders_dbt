@@ -19,4 +19,4 @@
 4-config Elementary 
 4-Deploy models and monitor data warehouse lineage.
 
-<img src="https://github.com/AmmarSahyoun/dbt_traders/blob/main/assets/archeticture.jpg" alt="Draft diagram" width="1000" height="600">
+<img src="https://github.com/AmmarSahyoun/dbt_traders/blob/main/assets/architecture.png" alt="Draft diagram" width="1000" height="600">
