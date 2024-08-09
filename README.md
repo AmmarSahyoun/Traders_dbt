@@ -1,8 +1,8 @@
 # Traders
 - This tutorial project aims to create a modern data warehouse from a web-platform database.
 - This project implemented locally using WSL ubuntu and postgresql where the database "Traders" holds several schemas for the source database and for the data warehouse target layers.
-- It combines disparate business data in order to analyze the data in reports and dashboards, which provides a consolidated view of business that support decissions.
 - some small tables from the source database have been replaced with seed constant data that could be modified manually.
+- Continuous Integration checks utilized by configuring workflow triggers when new "PR"events happened.
 
 
 ## Traders Data warehouse layers
