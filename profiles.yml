@@ -1,0 +1,12 @@
+dbt_traders:
+  outputs:
+    dev:
+      dbname: Traders
+      host: 127.0.0.1
+      pass: ammar
+      port: 5432
+      schema: staging
+      threads: 5
+      type: postgres
+      user: ammar
+  target: dev
