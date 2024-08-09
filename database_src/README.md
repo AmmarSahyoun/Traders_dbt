@@ -18,14 +18,6 @@ This sub directory contains Northwind database scripts to set up in PostgreSQL d
 **Additional Notes:**
 
 - The "Northwind" database provided with Microsoft Access is an excellent tutorial schema for a small ecommerce business. It represent a relational tables for storing data from Web Application as OLTP. Credits goes to the original database source of the MySQL sample data [dalers][link].
-- When working with big data it's crusual to use distributed computing storage with a columnar reading capability like BigQuery or Synapse to leverage of partitioning capability for a better performance and to reduce query cost and latency.
-
- 
-### Advantages of Data Warehouse:
-- Scalability: They can handle massive amounts of data.
-- Performance: Fast BI reports and complex analysis.
-- Consistency: Ensures data consistency across the organization.
-- Flexibility: Data warehouses can be adapted to changing business needs.
 
 
 [link]: https://github.com/dalers/mywind
