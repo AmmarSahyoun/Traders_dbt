@@ -6,18 +6,11 @@
 
 
 ## Traders Data warehouse layers
-1-Source dataset'schema' contains database tables
-2-Staging layer contains dbt denormalized models 'stg_'
-3-Vault layer where data vault modelling is implemented according to business needs.'vlt_'
-4-Semantic layer where the dimensional model is implemented. 'sem_'
+1. Source dataset'schema' contains database tables
+2. Staging layer contains dbt denormalized models 'stg_'
+3. Vault layer where data vault modelling is implemented according to business needs.'vlt_'
+4. Semantic layer where the dimensional model is implemented. 'sem_'
 
-
-## steps
-1-Build database northwind
-2-initialize dbt project 'Traders' and confirgure source and various target datasets(schemas)
-3-Add sql model and related yml file with proper metadata, column description and test cases
-4-config Elementary 
-4-Deploy models and monitor data warehouse lineage.
 
 <img src="https://github.com/AmmarSahyoun/dbt_traders/blob/main/assets/architecture.png" alt="Draft diagram" width="1000" height="600">
 
