@@ -2,7 +2,7 @@
 
 -- create "northwind" DATABASE
 
-create database retailer; 
+create database Traders; 
 drop schema if exists northwind;
 create schema if not exists northwind;
 set search_path to northwind;
@@ -74,7 +74,6 @@ create table if not exists northwind.privileges (
 );
 
 
-
 -- -----------------------------------------------------
 -- table employee_privileges
 -- -----------------------------------------------------
@@ -96,7 +95,6 @@ create table if not exists northwind.employee_privileges (
 
 create index employee_id_idx on northwind.employee_privileges (employee_id);
 create index privilege_id_idx on northwind.employee_privileges (privilege_id);
-
 
 
 -- -----------------------------------------------------
