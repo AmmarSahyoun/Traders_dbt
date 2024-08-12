@@ -1,0 +1,35 @@
+version: 2
+
+sources:
+  - name: dbo
+    description: A replica of the postgres database used to power the northwind application.
+    database: Traders
+    schema: dbo
+    tables:
+      - name: customers
+      - name: orders
+      - name: employees
+      - name: orders_tax_status
+      - name: shippers
+      - name: employee_privileges
+      - name: inventory_transaction_types
+      - name: inventory_transactions
+      - name: invoices
+      - name: order_details
+      - name: order_details_status
+      - name: privileges
+      - name: products
+      - name: purchase_order_details
+      - name: purchase_order_status
+      - name: purchase_orders
+      - name: suppliers
+
+
+  - name: seed
+    description: seed data as tables
+    database: Traders
+    schema: staging
+    tables:
+      - name: constant_seed__orders_status
+      - name: constant_seed__employee_privilieges
+      - name: constant_seed__privileges

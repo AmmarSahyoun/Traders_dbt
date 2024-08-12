@@ -12,7 +12,7 @@ This sub directory contains Northwind database scripts to set up in PostgreSQL d
 - **SQL scripts** are tailored for [PostgreSQL][post] .
 - **Entity-Relationship Diagram:** Visualize the business rules in the web application.
 
-<img src="https://github.com/AmmarSahyoun/dbt_traders/blob/main/assets/ERD-northwind.png" alt="Draft diagram" width="200" height="600">
+<img src="https://github.com/AmmarSahyoun/dbt_traders/blob/main/assets/ERD-northwind.png" alt="Draft diagram" width="400" height="600">
 
 
 **Additional Notes:**
