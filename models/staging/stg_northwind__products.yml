@@ -1,0 +1,71 @@
+version: 2
+
+models:
+  - name: stg_northwind__products
+    config: 
+      enabled: true
+      materialized: table
+      tags:
+        - Traders
+        - priducts      
+      meta:
+        owner: Traders
+        model_maturity: pre_release
+
+    description: Model for products
+    columns:
+      - name: supplier_ids
+        description: "supplier unique identifier"
+        data_tests:
+            - not_null
+
+      - name: product_id
+        description: "product identifier"
+        data_tests:
+            - unique
+            - not_null
+
+      - name: product_code
+        description: ""
+
+      - name: product_name
+        description: ""
+
+      - name: description
+        description: ""
+
+      - name: standard_cost
+        description: ""
+
+      - name: list_price
+        description: ""
+
+      - name: reorder_level 
+        description: ""
+
+      - name: target_level
+        description: ""
+
+      - name: quantity_per_unit
+        description: ""
+
+      - name: discontinued
+        description: ""
+
+      - name: minimum_reorder_quantity
+        description: ""
+
+      - name: category
+        description: ""
+
+      - name: attachments
+        description: ""
+
+      - name: batch_id
+        description: "The batch identifier"
+
+      - name: source_data
+        description: "The source of the data"
+
+      - name: load_dt
+        description: "Date and time of loading data into this table"

@@ -1,1 +1,0 @@
-select 'Ammar ' as name
