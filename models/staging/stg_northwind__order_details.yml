@@ -1,0 +1,61 @@
+version: 2
+
+models:
+  - name: stg_northwind__order_details
+    config: 
+      enabled: true
+      materialized: incremental
+      tags:
+        - Traders
+        - order_details      
+      meta:
+        owner: Traders
+        model_maturity: pre_release
+
+    description: Model for order details
+    columns:
+      - name: order_details_id
+        description: "order_details unique identifier"
+        data_tests:
+            - unique
+            - not_null
+
+      - name: order_id
+        description: "order identifier"
+        data_tests:
+            - not_null
+
+      - name: product_id
+        description: "product identifier"
+        data_tests:
+            - not_null
+
+      - name: quantity
+        description: ""
+
+      - name: unit_price
+        description: ""
+
+      - name: discount
+        description: ""
+
+      - name: status_name
+        description: ""
+
+      - name: date_allocated
+        description: ""
+
+      - name: purchase_order_id
+        description: ""
+
+      - name: inventory_id
+        description: ""
+
+      - name: batch_id
+        description: "The batch identifier"
+
+      - name: source_data
+        description: "the source of the data"
+
+      - name: load_dt
+        description: "Time of loading data into this table"

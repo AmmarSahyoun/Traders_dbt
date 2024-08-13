@@ -1,0 +1,54 @@
+version: 2
+
+models:
+  - name: stg_northwind__dates
+    config: 
+      enabled: true
+      materialized: table
+
+    description: Model for dates
+    columns:
+      - name: date_id
+        description: ""
+
+      - name: full_date
+        description: ""
+
+      - name: year
+        description: ""
+
+      - name: year_week
+        description: ""
+
+      - name: year_day
+        description: ""
+
+      - name: fiscal_year
+        description: ""
+
+      - name: fiscal_qrt
+        description: ""
+
+      - name: month 
+        description: ""
+
+      - name: month_name
+        description: ""
+
+      - name: week_day
+        description: ""
+
+      - name: day_name
+        description: ""
+
+      - name: is_weekday
+        description: ""
+
+      - name: batch_id
+        description: "The batch identifier"
+
+      - name: source_data
+        description: "The source of the data"
+
+      - name: load_dt
+        description: "Date and time of loading data into this table"

@@ -15,7 +15,7 @@
 <img src="https://github.com/AmmarSahyoun/dbt_traders/blob/main/assets/starSchema.png" alt="Draft diagram" width="400" height="400">
 
 ### Additional notes:
-- When working with big data it's crusual to use distributed computing storage with a columnar reading capability like BigQuery or Synapse to leverage of partitioning capability for a better performance and to reduce query latency and cost.
+- When working with big data, it's crucial to utilize distributed computing storage with columnar reading capabilities, such as BigQuery or Synapse, to leverage partitioning for enhanced performance, reduced query latency, and cost optimization.
 
  
 ### Advantages of Data Warehouse:
