@@ -1,4 +1,4 @@
-{{ config(materialized='table')}}
+{{ config(materialized='incremental', unique_key='order_id')}}
 
 with ranked_src as(
 select 
@@ -52,5 +52,6 @@ select
 from latest 
 
   
-
-    
+{% if is_incremental() %}
+    where current_timestamp > ( select max(load_dt) from {{this}} )
+{% endif %}

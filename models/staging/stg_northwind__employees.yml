@@ -4,7 +4,7 @@ models:
   - name: stg_northwind__employees
     config: 
       enabled: true
-      materialized: table
+      materialized: incremental
       tags:
         - Traders
         - employees      

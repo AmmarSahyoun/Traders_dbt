@@ -1,4 +1,4 @@
-{{ config(materialized='table')}} 
+{{ config(materialized='incremental', unique_key = 'employee_id')}} 
 
 with ranked_src as(
 select 
@@ -53,3 +53,6 @@ select
 from privleged
   
 
+{% if is_incremental() %}
+  where current_timestamp > (select max(load_dt) from {{this}} )
+{% endif %}

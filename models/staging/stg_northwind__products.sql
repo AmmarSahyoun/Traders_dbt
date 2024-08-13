@@ -1,4 +1,4 @@
-{{ config(materialized='table')}}
+{{ config(materialized='incremental', unique_key = 'product_id')}}
 
 with src as(
 select 
@@ -27,5 +27,6 @@ select
 from src 
 
   
-
-    
+{% if is_incremental() %}
+  where current_timestamp > (select max(load_dt) from {{ this }})
+{% endif %}
