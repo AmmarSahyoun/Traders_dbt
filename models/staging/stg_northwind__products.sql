@@ -7,7 +7,7 @@ from {{ source('dbo','products') }} where id is not null
 )
 
 select 
-  supplier_ids, 
+  supplier_ids,    # link and add suppliers info
   id as product_id,
   product_code, 
   product_name, 
