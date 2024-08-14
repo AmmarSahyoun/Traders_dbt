@@ -1,0 +1,53 @@
+version: 2
+
+models:
+  - name: stg_northwind__inventory
+    config: 
+      enabled: true
+      materialized: incremental
+      tags:
+        - Traders
+        - inventory      
+      meta:
+        owner: Traders
+        model_maturity: pre_release
+
+    description: Model for inventory transactions 
+    columns:
+      - name: inventory_id
+        description: "Unique identifier for each transaction record."
+        data_tests:
+            - unique
+            - not_null
+
+      - name: transaction_name
+        description: "type of transaction "
+
+      - name: transaction_created_date
+        description: "when the transaction was recorded."
+
+      - name: transaction_modified_date
+        description: "the last modification to the transaction record."
+
+      - name: product_id
+        description: "Identifier linking the transaction to a specific product."
+
+      - name: quantity
+        description: "The number of items involved in the transaction"
+
+      - name: purchase_order_id
+        description: "Identifier linking to purchase_order"
+
+      - name: customer_order_id 
+        description: "Identifier linking to customer_order"
+
+      - name: comments
+        description: "Additional notes"
+
+      - name: batch_id
+        description: "The batch identifier"
+
+      - name: source_data
+      
+      - name: load_dt
+        description: "Date and time of loading data into this table"
