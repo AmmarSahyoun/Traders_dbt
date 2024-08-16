@@ -1,0 +1,9 @@
+default_stages: [commit, push]
+
+repos:
+  - repo: https://github.com/sqlfluff/sqlfluff
+    rev: 1.4.1
+    hooks:
+      - id: sqlfluff-lint
+      - id: sqlfluff-fix
+        args: ["--config", "./pyproject.toml"]

@@ -27,6 +27,13 @@
 - Consistency: Ensures data consistency across the organization.
 - Flexibility: Data warehouses can be adapted to changing business needs.
 
+### Useful commands:
+```shell
+poetry shell 
+```
+```shell
+poetry run pre-commit run --hook-stage manual sqlfluff-fix
+```
 
 [database_src]: https://github.com/AmmarSahyoun/dbt_traders/tree/main/database_src
 
