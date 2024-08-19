@@ -3,7 +3,7 @@
 - This project implemented locally using WSL ubuntu and postgresql
 - The postgresql database "Traders" holds several schemas layers 'dataset' for the source database and for the target data warehouse.
 - Some small tables from the source database have been replaced with seed constant data that could be modified manually.
-- Continuous Integration checks utilized by configuring workflow triggers on new "PR" events.
+- Pre-commit checks utilized by configuring poetry and sqlfluff.
 
 <img src="https://github.com/AmmarSahyoun/dbt_traders/blob/main/assets/architecture.png" alt="Draft diagram" width="1000" height="600">
 
