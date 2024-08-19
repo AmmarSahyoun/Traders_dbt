@@ -1,0 +1,77 @@
+version: 2
+
+models:
+  - name: stg_northwind__purchase_orders
+    config: 
+      enabled: true
+      materialized: incremental
+      tags:
+        - Traders
+        - purchase_orders      
+      meta:
+        owner: Traders
+        model_maturity: pre_release
+
+    description: Model for purchases orders
+    columns:
+      - name: purchase_order_id
+        description: "purchase_orders unique identifier"
+        data_tests:
+            - unique
+            - not_null
+
+      - name: supplier_id
+        description: "order identifier"
+        data_tests:
+            - not_null
+
+      - name: created_by
+        description: ""
+
+      - name: submitted_date
+        description: ""
+
+      - name: creation_date
+        description: ""
+
+      - name: status_name
+        description: ""
+
+      - name: expected_date
+        description: ""
+
+      - name: shipping_fee
+        description: ""
+
+      - name: taxes
+        description: ""
+
+      - name: payment_date
+        description: ""
+
+      - name: payment_amount
+        description: ""
+
+      - name: payment_method
+        description: ""
+
+      - name: notes
+        description: ""
+
+      - name: approved_by
+        description: ""
+
+      - name: approved_date
+        description: ""
+
+      - name: submitted_by
+        description: ""     
+
+      - name: batch_id
+        description: "The batch identifier"
+
+      - name: source_data
+        description: "the source of the data"
+
+      - name: load_dt
+        description: "Time of loading data into this table"
