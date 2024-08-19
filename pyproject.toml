@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "dbt-traders"
 version = "0.1.0"
-description = "This toml file orchestrate the versions of the dependencies"
+description = "This toml file orchestrates the versions of the dependencies"
 authors = ["Ammar Sahyoun <ammarzgr@hotmail.com>"]
 readme = "README.md"
 
@@ -14,26 +14,24 @@ pandas = "^2.2.2"
 sqlfluff = "^3.1.0"
 pre-commit = "^3.8.0"
 
+[tool.sqlfluff.core]
+templater = "jinja"
+dialect = "postgres"
+exclude_rules = "L031, L016, L034"  # Removed invalid rules
+ignore = "templating"
 
- [tool.sqlfluff.core]
- templater = "jinja"
- dialect = "postgres"
- exclude_rules = "L031, L016, L034, AL04, AL05, AL06, CV02, CV03, CV04, RF05, RF06, ST01"
- ignore = "templating"
-    
- [tool.sqlfluff.indentation]
- indented_joins = false
- indented_using_on = false
-    
- [tool.sqlfluff.rules]
- tab_space_size = 2
-    
- [tool.sqlfluff.rules.L010]
- capitalisation_policy = "lower"
-    
- [tool.sqlfluff.rules.L016]
- max_line_length = 125
+[tool.sqlfluff.indentation]
+indented_joins = false
+indented_using_on = false
 
+[tool.sqlfluff.rules]
+tab_space_size = 2
+
+[tool.sqlfluff.rules.L010]
+capitalisation_policy = "lower"
+
+[tool.sqlfluff.rules.L016]
+max_line_length = 125
 
 [build-system]
 requires = ["poetry-core"]
