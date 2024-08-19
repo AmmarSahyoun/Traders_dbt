@@ -1,9 +1,9 @@
 # Traders
 - This tutorial project aims to create a modern data warehouse from a web-platform [database][database_src].
-- This project implemented locally using WSL ubuntu and postgresql
+- This project implemented locally using WSL ubuntu and postgresql as a test layer.
 - The postgresql database "Traders" holds several schemas layers 'dataset' for the source database and for the target data warehouse.
-- Some small tables from the source database have been replaced with seed constant data that could be modified manually.
-- Continuous Integration checks utilized by configuring workflow triggers on new "PR" events.
+- Some small tables from the source database have been replaced with seed constant data that could be later modified manually.
+- Pre-commit sqlfluff rules implemented to align sql with postgres standard syntax.
 
 <img src="https://github.com/AmmarSahyoun/dbt_traders/blob/main/assets/architecture.png" alt="Draft diagram" width="1000" height="600">
 
@@ -32,7 +32,7 @@
 poetry shell 
 ```
 ```shell
-poetry run pre-commit run --hook-stage manual sqlfluff-fix
+poetry run pre-commit run sqlfluff-fix --files models/staging/stg_northwind__suppliers.sql
 ```
 
 [database_src]: https://github.com/AmmarSahyoun/dbt_traders/tree/main/database_src
