@@ -1,0 +1,41 @@
+version: 2
+
+models:
+  - name: vlt__h_order_customer
+    config:
+      enabled: true
+      materialized: table
+      tags:
+        - logistic
+        - customer
+    meta:
+      owner: Traders logistic
+      model_maturity: development
+      contains_pii: false
+
+    description: "hub for order-customer ensemble"
+    columns:
+      - name: h_order_customer.h_order_customer_key
+      - name: h_order_customer.h_order_customer_id
+        description: "Id containing customer info for each order"
+      - name: l_order_customer.h_customer_key
+        description: ""
+      - name: order_id
+        description: ""
+      - name: customer_id
+        description: ""
+      - name: order_dt
+        description: ""
+      - name: order_status
+        description: ""
+      - name: effective_date
+        description: ""
+      - name: shipped_date
+        description: ""
+      - name: payment_type
+        description: ""
+      - name: paid_date
+        description: ""
+      - name: source_data
+      - name: batch_id
+      - name: load_dt

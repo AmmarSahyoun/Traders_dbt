@@ -37,7 +37,7 @@ files = [
 [[package]]
 name = "aiohttp"
 version = "3.10.3"
-description = "Async http client/server framework (asyncio)"
+description = "async http client/server framework (asyncio)"
 optional = false
 python-versions = ">=3.8"
 files = [
@@ -647,7 +647,7 @@ test = ["coverage", "mypy", "pexpect", "ruff", "wheel"]
 [[package]]
 name = "asgiref"
 version = "3.8.1"
-description = "ASGI specs, helper code, and adapters"
+description = "asGI specs, helper code, and adapters"
 optional = false
 python-versions = ">=3.8"
 files = [
