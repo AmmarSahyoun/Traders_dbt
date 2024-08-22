@@ -23,9 +23,7 @@ sources:
       - name: purchase_order_status
       - name: purchase_orders
       - name: suppliers
-
-
-  - name: seed
+  - name: staging
     description: seed data as tables
     database: Traders
     schema: staging

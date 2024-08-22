@@ -37,9 +37,9 @@ select
   l.attachments,
   p.privilege_name
 from latest as l
-    left join "staging"."constant_seed__employee_privilieges" as ep
+    left join {{ref('constant_seed__employee_privilieges')}} as ep
         on l.id = ep.employee_id 
-    left join "staging"."constant_seed__privileges" as p
+    left join {{ref('constant_seed__privileges')}} as p
         on  ep.privilege_id = p.id
 where l.id is not null   
   )  

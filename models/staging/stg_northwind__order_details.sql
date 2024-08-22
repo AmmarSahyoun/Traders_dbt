@@ -35,7 +35,9 @@ ranked_src as(
 
 select 
   *
-from ranked_src where rnk = 1
+from ranked_src 
+where 1=1
+  and rnk = 1
 
   
 {% if is_incremental() %}

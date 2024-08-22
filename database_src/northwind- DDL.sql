@@ -1,6 +1,6 @@
 -- DLL commands for postgresql
 
--- create "Traders" DATABASE
+-- create "Traders" DATABasE
 
 create database Traders; 
 drop schema if exists dbo;
@@ -13,20 +13,20 @@ set search_path to dbo;
 -- -----------------------------------------------------
 create table if not exists dbo.customers (
     id SERIAL primary key,
-    company VARCHAR(50) default null,
-    last_name VARCHAR(50) default null,
-    first_name VARCHAR(50) default null,
-    email_address VARCHAR(50) default null,
-    job_title VARCHAR(50) default null,
-    business_phone VARCHAR(25) default null,
-    home_phone VARCHAR(25) default null,
-    mobile_phone VARCHAR(25) default null,
-    fax_number VARCHAR(25) default null,
+    company varchar(50) default null,
+    last_name varchar(50) default null,
+    first_name varchar(50) default null,
+    email_address varchar(50) default null,
+    job_title varchar(50) default null,
+    business_phone varchar(25) default null,
+    home_phone varchar(25) default null,
+    mobile_phone varchar(25) default null,
+    fax_number varchar(25) default null,
     address TEXT default null,
-    city VARCHAR(50) default null,
-    state_province VARCHAR(50) default null,
-    zip_postal_code VARCHAR(15) default null,
-    country_region VARCHAR(50) default null,
+    city varchar(50) default null,
+    state_province varchar(50) default null,
+    zip_postal_code varchar(15) default null,
+    country_region varchar(50) default null,
     web_page TEXT default null,
     notes TEXT default null,
     attachments BYTEA default null
@@ -45,20 +45,20 @@ create index state_province_idx on dbo.customers (state_province);
 -- -----------------------------------------------------
 create table if not exists dbo.employees (
     id SERIAL primary key,
-    company VARCHAR(50) default null,
-    last_name VARCHAR(50) default null,
-    first_name VARCHAR(50) default null,
-    email_address VARCHAR(50) default null,
-    job_title VARCHAR(50) default null,
-    business_phone VARCHAR(25) default null,
-    home_phone VARCHAR(25) default null,
-    mobile_phone VARCHAR(25) default null,
-    fax_number VARCHAR(25) default null,
+    company varchar(50) default null,
+    last_name varchar(50) default null,
+    first_name varchar(50) default null,
+    email_address varchar(50) default null,
+    job_title varchar(50) default null,
+    business_phone varchar(25) default null,
+    home_phone varchar(25) default null,
+    mobile_phone varchar(25) default null,
+    fax_number varchar(25) default null,
     address TEXT default null,
-    city VARCHAR(50) default null,
-    state_province VARCHAR(50) default null,
-    zip_postal_code VARCHAR(15) default null,
-    country_region VARCHAR(50) default null,
+    city varchar(50) default null,
+    state_province varchar(50) default null,
+    zip_postal_code varchar(15) default null,
+    country_region varchar(50) default null,
     web_page TEXT default null,
     notes TEXT default null,
     attachments BYTEA default null
@@ -70,7 +70,7 @@ create table if not exists dbo.employees (
 -- -----------------------------------------------------
 create table if not exists dbo.privileges (
     id SERIAL primary key,
-    privilege_name VARCHAR(50) default null
+    privilege_name varchar(50) default null
 );
 
 
@@ -102,7 +102,7 @@ create index privilege_id_idx on dbo.employee_privileges (privilege_id);
 -- -----------------------------------------------------
 create table if not exists dbo.inventory_transaction_types (
     id SMALLINT not null,
-    type_name VARCHAR(50) not null,
+    type_name varchar(50) not null,
     primary key (id)
 );
 
@@ -112,20 +112,20 @@ create table if not exists dbo.inventory_transaction_types (
 -- -----------------------------------------------------
 create table if not exists dbo.shippers (
     id SERIAL primary key,
-    company VARCHAR(50) default null,
-    last_name VARCHAR(50) default null,
-    first_name VARCHAR(50) default null,
-    email_address VARCHAR(50) default null,
-    job_title VARCHAR(50) default null,
-    business_phone VARCHAR(25) default null,
-    home_phone VARCHAR(25) default null,
-    mobile_phone VARCHAR(25) default null,
-    fax_number VARCHAR(25) default null,
+    company varchar(50) default null,
+    last_name varchar(50) default null,
+    first_name varchar(50) default null,
+    email_address varchar(50) default null,
+    job_title varchar(50) default null,
+    business_phone varchar(25) default null,
+    home_phone varchar(25) default null,
+    mobile_phone varchar(25) default null,
+    fax_number varchar(25) default null,
     address TEXT default null,
-    city VARCHAR(50) default null,
-    state_province VARCHAR(50) default null,
-    zip_postal_code VARCHAR(15) default null,
-    country_region VARCHAR(50) default null,
+    city varchar(50) default null,
+    state_province varchar(50) default null,
+    zip_postal_code varchar(15) default null,
+    country_region varchar(50) default null,
     web_page TEXT default null,
     notes TEXT default null,
     attachments BYTEA default null
@@ -137,7 +137,7 @@ create table if not exists dbo.shippers (
 -- -----------------------------------------------------
 create table if not exists dbo.orders_tax_status (
     id SMALLINT not null,
-    tax_status_name VARCHAR(50) not null,
+    tax_status_name varchar(50) not null,
     primary key (id)
 );
 
@@ -147,7 +147,7 @@ create table if not exists dbo.orders_tax_status (
 -- -----------------------------------------------------
 create table if not exists dbo.orders_status (
     id SMALLINT not null,
-    status_name VARCHAR(50) not null,
+    status_name varchar(50) not null,
     primary key (id)
 );
 
@@ -162,15 +162,15 @@ create table if not exists dbo.orders (
     order_date TIMESTAMP default null,
     shipped_date TIMESTAMP default null,
     shipper_id INT default null,
-    ship_name VARCHAR(50) default null,
+    ship_name varchar(50) default null,
     ship_address TEXT default null,
-    ship_city VARCHAR(50) default null,
-    ship_state_province VARCHAR(50) default null,
-    ship_zip_postal_code VARCHAR(50) default null,
-    ship_country_region VARCHAR(50) default null,
+    ship_city varchar(50) default null,
+    ship_state_province varchar(50) default null,
+    ship_zip_postal_code varchar(50) default null,
+    ship_country_region varchar(50) default null,
     shipping_fee DECIMAL(19,4) default 0.0000,
     taxes DECIMAL(19,4) default 0.0000,
-    payment_type VARCHAR(50) default null,
+    payment_type varchar(50) default null,
     paid_date TIMESTAMP default null,
     notes TEXT default null,
     tax_rate DOUBLE PRECISIon default 0,
@@ -206,17 +206,17 @@ create index ship_zip_postal_code_idx on dbo.orders (ship_zip_postal_code);
 create table if not exists dbo.products (
     supplier_ids TEXT default null,
     id SERIAL primary key,
-    product_code VARCHAR(25) default null,
-    product_name VARCHAR(50) default null,
+    product_code varchar(25) default null,
+    product_name varchar(50) default null,
     description TEXT default null,
     standard_cost DECIMAL(19,4) default 0.0000,
     list_price DECIMAL(19,4) not null default 0.0000,
     reorder_level INT default null,
     target_level INT default null,
-    quantity_per_unit VARCHAR(50) default null,
+    quantity_per_unit varchar(50) default null,
     discontinued BOOLEAN not null default false,
     minimum_reorder_quantity INT default null,
-    category VARCHAR(50) default null,
+    category varchar(50) default null,
     attachments BYTEA default null
 );
 
@@ -229,7 +229,7 @@ create index product_code_idx on dbo.products (product_code);
 -- -----------------------------------------------------
 create table if not exists dbo.purchase_order_status (
     id INT not null,
-    status VARCHAR(50) default null,
+    status varchar(50) default null,
     primary key (id)
 );
 
@@ -240,20 +240,20 @@ create table if not exists dbo.purchase_order_status (
 -- -----------------------------------------------------
 create table if not exists dbo.suppliers (
     id SERIAL primary key,
-    company VARCHAR(50) default null,
-    last_name VARCHAR(50) default null,
-    first_name VARCHAR(50) default null,
-    email_address VARCHAR(50) default null,
-    job_title VARCHAR(50) default null,
-    business_phone VARCHAR(25) default null,
-    home_phone VARCHAR(25) default null,
-    mobile_phone VARCHAR(25) default null,
-    fax_number VARCHAR(25) default null,
+    company varchar(50) default null,
+    last_name varchar(50) default null,
+    first_name varchar(50) default null,
+    email_address varchar(50) default null,
+    job_title varchar(50) default null,
+    business_phone varchar(25) default null,
+    home_phone varchar(25) default null,
+    mobile_phone varchar(25) default null,
+    fax_number varchar(25) default null,
     address TEXT default null,
-    city VARCHAR(50) default null,
-    state_province VARCHAR(50) default null,
-    zip_postal_code VARCHAR(15) default null,
-    country_region VARCHAR(50) default null,
+    city varchar(50) default null,
+    state_province varchar(50) default null,
+    zip_postal_code varchar(15) default null,
+    country_region varchar(50) default null,
     web_page TEXT default null,
     notes TEXT default null,
     attachments BYTEA default null
@@ -275,7 +275,7 @@ create table if not exists dbo.purchase_orders (
     taxes DECIMAL(19,4) not null default 0.0000,
     payment_date TIMESTAMP default null,
     payment_amount DECIMAL(19,4) default 0.0000,
-    payment_method VARCHAR(50) default null,
+    payment_method varchar(50) default null,
     notes TEXT default null,
     approved_by INT default null,
     approved_date TIMESTAMP default null,
@@ -310,7 +310,7 @@ create table if not exists dbo.inventory_transactions (
     quantity INT not null,
     purchase_order_id INT default null,
     customer_order_id INT default null,
-    comments VARCHAR(255) default null,
+    comments varchar(255) default null,
     constraint fk_inventory_transactions_orders1 foreign key (customer_order_id)
         references dbo.orders (id)
         on delete no action on update no action,
@@ -356,7 +356,7 @@ create index fk_invoices_orders1_idx on dbo.invoices (order_id);
 -- -----------------------------------------------------
 create table if not exists dbo.order_details_status (
     id INT not null,
-    status_name VARCHAR(50) not null,
+    status_name varchar(50) not null,
     primary key (id)
 );
 
@@ -416,9 +416,9 @@ create table if not exists dbo.purchase_order_details (
 -- table sales_reports
 -- -----------------------------------------------------
 create table if not exists dbo.sales_reports (
-    group_by VARCHAR(50) not null,
-    display VARCHAR(50) default null,
-    title VARCHAR(50) default null,
+    group_by varchar(50) not null,
+    display varchar(50) default null,
+    title varchar(50) default null,
     filter_row_source TEXT default null,
     is_default BOOLEAN not null default false,
     primary key (group_by)
@@ -430,7 +430,7 @@ create table if not exists dbo.sales_reports (
 -- -----------------------------------------------------
 create table if not exists dbo.strings (
     string_id SERIAL primary key,
-    string_data VARCHAR(255) default null
+    string_data varchar(255) default null
 );
 
 -- -----------------------------------------------------
