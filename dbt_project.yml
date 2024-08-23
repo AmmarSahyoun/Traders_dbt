@@ -38,3 +38,6 @@ models:
     vault:
       +materialized: table
       +schema: e_vault
+    semantic:
+      +materialized: table
+      +schema: s_semantic

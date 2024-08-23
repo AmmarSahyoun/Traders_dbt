@@ -1,4 +1,4 @@
-{{ config(materialized='incremental', unique_key = 'employee_id')}} 
+{{ config(materialized='incremental', unique_key = 'employee_id') }} 
 
 with ranked_src as (
   select

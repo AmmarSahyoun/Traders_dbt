@@ -41,8 +41,7 @@ ensemble_vlt as (
     ) as s_order_customer,
     md_source,
     md_batch,
-    md_load_dt,
-    row_number() over (partition by h_customer_key, order_id, effective_dt order by effective_dt) as rnk
+    md_load_dt
   from prep_vault
 )
 
@@ -55,5 +54,5 @@ select
   md_source,
   md_batch,
   md_load_dt
-from ensemble_vlt where 1 = 1
-                        and rnk = 1
+from ensemble_vlt
+where 1 = 1
