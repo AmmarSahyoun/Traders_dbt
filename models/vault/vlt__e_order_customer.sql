@@ -56,4 +56,4 @@ select
   md_batch,
   md_load_dt
 from ensemble_vlt where 1 = 1
-                        and rnk = 1
+  and rnk = 1
