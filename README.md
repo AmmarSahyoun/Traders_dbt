@@ -32,7 +32,7 @@
 poetry shell 
 ```
 ```shell
-poetry run pre-commit run sqlfluff-fix --files models/staging/stg_northwind__suppliers.sql
+poetry run pre-commit run sqlfluff-fix --files /RELATIVE_PATH
 ```
 
 [database_src]: https://github.com/AmmarSahyoun/dbt_traders/tree/main/database_src
