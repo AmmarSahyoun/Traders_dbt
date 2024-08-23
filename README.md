@@ -5,7 +5,7 @@
 - Some small tables from the source database have been replaced with seed constant data that could be later modified manually.
 - Pre-commit sqlfluff rules implemented to align sql with postgres standard syntax.
 
-<img src="https://github.com/AmmarSahyoun/dbt_traders/blob/main/assets/architecture.png" alt="Draft diagram" width="800" height="300">
+<img src="https://github.com/AmmarSahyoun/dbt_traders/blob/main/assets/architecture.png" alt="Draft diagram" width="800" height="400">
 
 ## Traders Data warehouse layers
 1. Source [database] tables.
