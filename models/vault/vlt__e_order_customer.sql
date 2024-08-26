@@ -22,7 +22,7 @@ with prep_vault as (
     '{{ invocation_id }}' as md_batch,
     current_timestamp::timestamp(0) as md_load_dt
   from
-    staging.stg_northwind__orders
+   {{ ref('stg_northwind__orders') }}
 ),
 
 
