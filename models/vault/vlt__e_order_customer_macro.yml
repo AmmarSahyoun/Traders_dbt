@@ -1,0 +1,95 @@
+version: 2
+
+models:
+  - name: vlt__e_order_customer_macro
+    config:
+      enabled: true
+      materialized: table
+      tags:
+        - logistic
+        - customer
+        - order
+    meta:
+      owner: Traders logistic
+      model_maturity: development
+      contains_pii: false
+
+    description: "vault macro for order-customer"
+    columns:
+      - name: employee_id
+        description: "Employee ID associated with the order"
+        data_tests:
+            - not_null
+
+      - name: order_date
+        description: "Date when the order was placed"
+
+      - name: shipped_date
+        description: "Date when the order was shipped"
+
+      - name: shipper_id
+        description: "Shipper ID for delivery"
+
+      - name: ship_name
+        description: "Name of the shipping company"
+
+      - name: ship address
+        description: "Shipping address"
+
+      - name: ship_city
+        description: "Shipping city"
+
+      - name: ship_state_province
+        description: "Shipping state or province"
+
+      - name: ship_zip_postal_code
+        description: "Shipping postal code"
+
+      - name: ship_country_region
+        description: "Shipping country or region"
+
+      - name: shipping_fee
+        description: "Shipping fee amount"
+
+      - name: taxes
+        description: "Total taxes applied to the order"
+
+      - name: payment_type
+        description: "Payment method used"
+
+      - name: paid_date
+        description: "Date when the order was paid"
+
+      - name: notes
+        description: "Additional order notes"
+
+      - name: tax_rate
+        description: "Tax rate applied"
+
+      - name: tax_status_id
+        description: "Tax status identifier"
+
+      - name: status_name
+        description: "Order status name"
+
+      - name: batch_id
+        description: "The batch identifier"
+
+      - name: source_data
+        description: "the source of the data"
+
+      - name: load_dt
+        description: "Time of loading data into this table"
+
+      - name: order_hk
+        description: "order hub key"
+
+      - name: customer_hk
+        description: "customer hub key"
+
+      - name: order_customer_hk
+        description: "order_customer hub key"
+
+      - name: orderr_hd
+        description: ""
+  
