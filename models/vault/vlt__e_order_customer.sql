@@ -1,18 +1,27 @@
-with prep_vault as (
+with vault_prep as (
   select
     order_id,
     customer_id,
     cast(
-      ('x' || substr(md5(coalesce(cast(order_id as varchar), '~~') || '##'
-        || coalesce(cast(customer_id as varchar), '~~')), 1, 16))::bit(64)::bigint
-      as bigint
-    ) as h_order_customer_key,
-    coalesce(cast(order_id as varchar), '~~') || '##' || coalesce(cast(customer_id
-        as varchar), '~~') as order_customer_id,
+      ('x' || substr(md5(
+        coalesce(nullif(upper(trim(cast(order_id as varchar))), ''),'~~') || '##' || 
+        coalesce(nullif(upper(trim(cast(customer_id as varchar))), ''), '~~')
+            ), 1, 16))::bit(64)::bigint
+        as bigint
+        ) as h_order_customer_key,
+    coalesce(nullif(upper(trim(cast(order_id as varchar))), ''), '~~') || '##' || 
+    coalesce(nullif(upper(trim(cast(customer_id as varchar))), ''), '~~') 
+          as order_customer_id,
     cast(
-      ('x' || substr(md5(coalesce(cast(customer_id as varchar), '~~')), 1, 16))::bit(64)::bigint
-      as bigint
-    ) as h_customer_key,
+      ('x' || substr(md5(coalesce(nullif(upper(trim(cast(customer_id as varchar))), ''), '~~')
+            ), 1, 16))::bit(64)::bigint
+        as bigint
+         ) as h_customer_key,
+    cast(
+      ('x' || substr(md5(coalesce(nullif(upper(trim(cast(order_id as varchar))), ''), '~~')
+            ), 1, 16))::bit(64)::bigint
+        as bigint
+         ) as h_order_key,
     order_date::date as order_dt,
     order_date as effective_dt,
     status_name as order_status,
@@ -26,7 +35,7 @@ with prep_vault as (
 ),
 
 
-ensemble_vlt as (
+vlt_ensemble as (
   select
     jsonb_build_object(
       'h_order_customer_key', h_order_customer_key,
@@ -35,6 +44,9 @@ ensemble_vlt as (
     jsonb_build_object(
       'h_customer_key', h_customer_key
     ) as l_order_customer,
+    jsonb_build_object(
+      'h_order_key', h_order_key
+    ) as l_order_order_details,
     effective_dt,
     jsonb_build_object('order_dt', order_dt, 'order_status', order_status, 'shipped_date', shipped_date,
       'notes', notes
@@ -42,17 +54,18 @@ ensemble_vlt as (
     md_source,
     md_batch,
     md_load_dt
-  from prep_vault
+  from vault_prep
 )
 
 
 select
   h_order_customer,
   l_order_customer,
+  l_order_order_details,
   effective_dt,
   s_order_customer,
   md_source,
   md_batch,
   md_load_dt
-from ensemble_vlt
+from vlt_ensemble
 where 1 = 1
