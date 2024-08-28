@@ -34,7 +34,19 @@ ranked_src as(
  
 
 select 
-  *
+  order_details_id,
+  order_id,
+  product_id,
+  quantity,
+  unit_price, 
+  discount, 
+  status_name,
+  date_allocated,
+  purchase_order_id,
+  inventory_id,
+  batch_id,
+  source_data,
+  load_dt
 from ranked_src 
 where 1=1
   and rnk = 1
