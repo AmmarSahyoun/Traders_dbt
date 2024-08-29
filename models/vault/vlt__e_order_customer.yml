@@ -17,26 +17,26 @@ models:
     description: "vault ensemble for order-customer"
     columns:
       - name: h_order_customer.h_order_customer_key
-      - name: h_order_customer.h_order_customer_id
+      - name: h_order_customer.order_customer_id
         description: "Id containing order info for each customer"
       - name: l_order_customer.h_customer_key
         description: "link key to customer hub"
-      - name: l_order_order_details.h_order_key
+      - name: l_order_customer.h_order_key
         description: "link key to order hub"
-      - name: s_order_customer.effective_dt
+      - name: s_order_details_product.effective_dt
         description: "effective datetime"
-      - name: s_order_customer.order_dt
-        description: "order datetime"
-      - name: s_order_customer.order_status
+      - name: s_order_details_product.order_date
+        description: "order date"
+      - name: s_order_details_product.order_status
         description: ""
-      - name: s_order_customer.shipped_date
+      - name: s_order_details_product.shipped_date
         description: ""
-      - name: s_order_customer.notes
+      - name: s_order_details_product.notes
         description: ""
-      - name: s_order_customer.md_source
+      - name: md_source
         description: "source metadata"
-      - name: s_order_customer.md_batch
+      - name: md_batch
         description: "metadata Id for auditing"
-      - name: s_order_customer.md_load_dt
+      - name: md_load_dt
         description: "metadata load datetime"
   

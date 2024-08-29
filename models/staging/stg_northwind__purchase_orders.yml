@@ -4,7 +4,7 @@ models:
   - name: stg_northwind__purchase_orders
     config: 
       enabled: true
-      materialized: incremental
+      materialized: view
       tags:
         - Traders
         - purchase_orders      
