@@ -1,5 +1,3 @@
-{{ config(materialized='incremental', unique_key = 'product_id')}}
-
 with src as(
 select 
 	*
@@ -7,7 +5,7 @@ from {{ source('dbo','products') }} where id is not null
 )
 
 select 
-  supplier_ids,    # link and add suppliers info
+  supplier_ids,
   id as product_id,
   product_code, 
   product_name, 
@@ -24,9 +22,4 @@ select
   '{{ invocation_id }}'  as batch_id,
   'db' as source_data,
   current_timestamp::timestamp(0) as load_dt
-from src 
-
-  
-{% if is_incremental() %}
-  where current_timestamp > (select max(load_dt) from {{ this }})
-{% endif %}
+from src
