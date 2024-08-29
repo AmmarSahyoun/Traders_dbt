@@ -42,11 +42,9 @@ vlt_ensemble as (
       'order_customer_id', order_customer_id
     ) as h_order_customer,
     jsonb_build_object(
-      'h_customer_key', h_customer_key
-    ) as l_order_customer,
-    jsonb_build_object(
+      'h_customer_key', h_customer_key,
       'h_order_key', h_order_key
-    ) as l_order_order_details,
+    ) as l_order_customer,
     effective_dt,
     jsonb_build_object('order_dt', order_dt, 'order_status', order_status, 'shipped_date', shipped_date,
       'notes', notes
@@ -61,7 +59,6 @@ vlt_ensemble as (
 select
   h_order_customer,
   l_order_customer,
-  l_order_order_details,
   effective_dt,
   s_order_customer,
   md_source,

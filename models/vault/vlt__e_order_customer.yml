@@ -21,8 +21,10 @@ models:
         description: "Id containing order info for each customer"
       - name: l_order_customer.h_customer_key
         description: "link key to customer hub"
-      - name: l_order_order_details.h_order_key
+      - name: l_order.h_order_key
         description: "link key to order hub"
+      - name: l_order.h_customer_key
+        description: "link key to customer hub"
       - name: s_order_customer.effective_dt
         description: "effective datetime"
       - name: s_order_customer.order_dt
