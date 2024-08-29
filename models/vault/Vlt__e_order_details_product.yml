@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: Vlt__e_order_details_product
+    config:
+      enabled: true
+      materialized: table
+      tags:
+        - logistic
+        - product
+        - order_details
+    meta:
+      owner: Traders logistic
+      model_maturity: development
+      contains_pii: false
+
+    description: "vault ensemble for order_details product"
+    columns:
+      - name: h_order_details_product.h_order_details_product_key
+      - name: h_order_details_product.order_details_product_id
+        description: "Id containing order detailes for each product"
+      - name: l_order_details_product.h_product_key
+        description: "link key to product hub"
+      - name: l_order_details_product.h_order_key
+        description: "link key to order hub"
+      - name: s_order_details_product.effective_dt
+        description: "effective datetime"
+      - name: s_order_details_product.quantity
+        description: ""
+      - name: s_order_details_product.unit_price
+        description: ""
+      - name: s_order_details_product.discount
+        description: ""
+      - name: md_source
+        description: "source metadata"
+      - name: md_batch
+        description: "metadata Id for auditing"
+      - name: md_load_dt
+        description: "metadata load datetime"
+  

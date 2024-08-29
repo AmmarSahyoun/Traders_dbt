@@ -22,7 +22,7 @@ with vault_prep as (
             ), 1, 16))::bit(64)::bigint
         as bigint
          ) as h_order_key,
-    order_date::date as order_dt,
+    order_date::date as order_date,
     order_date as effective_dt,
     status_name as order_status,
     shipped_date::date,
@@ -46,9 +46,9 @@ vlt_ensemble as (
       'h_order_key', h_order_key
     ) as l_order_customer,
     effective_dt,
-    jsonb_build_object('order_dt', order_dt, 'order_status', order_status, 'shipped_date', shipped_date,
+    jsonb_build_object('order_date', order_date, 'order_status', order_status, 'shipped_date', shipped_date,
       'notes', notes
-    ) as s_order_customer,
+    ) as s_order_details_product,
     md_source,
     md_batch,
     md_load_dt
@@ -60,7 +60,7 @@ select
   h_order_customer,
   l_order_customer,
   effective_dt,
-  s_order_customer,
+  s_order_details_product,
   md_source,
   md_batch,
   md_load_dt
