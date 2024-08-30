@@ -1,8 +1,8 @@
 # Traders
-- This tutorial project aims to create a modern data warehouse from a web-platform [database][database_src].
-- This project implemented locally using WSL ubuntu and postgresql as a test layer.
+- A modern data warehouse derived from a web-platform [database][database_src].
+- This tutorial project implemented locally using WSL ubuntu and postgresql as a dev-layer.
 - The postgresql database "Traders" holds several schemas layers 'dataset' for the source database and for the target data warehouse.
-- Some small tables from the source database have been replaced with seed constant data that could be later modified manually.
+- Some small tables from the source database have been replaced with seed constant data and others have been denormalized.
 - Pre-commit sqlfluff rules implemented to align sql with postgres standard syntax.
 
 <img src="https://github.com/AmmarSahyoun/dbt_traders/blob/main/assets/architecture.png" alt="Draft diagram" width="800" height="400">
