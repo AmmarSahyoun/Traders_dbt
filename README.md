@@ -9,9 +9,9 @@
 
 ## Traders Data warehouse layers
 1. Source [database] tables.
-2. Staging layer contains dbt denormalized models 'stg_'
-3. Vault layer where data vault modelling is implemented according to business needs.'vlt_'
-4. Semantic layer where the dimensional model is implemented. 'sem_'
+2. Staging layer contains dbt denormalized view models 'stg_'
+3. Vault layer where data vault modelling is implemented'vlt_'
+4. Semantic layer where the fact and dimension tables creating star schema models 'sem_'
 
 <img src="https://github.com/AmmarSahyoun/dbt_traders/blob/main/assets/v_order_customer.png" alt="Draft diagram" width="400" height="400">
 <img src="https://github.com/AmmarSahyoun/dbt_traders/blob/main/assets/starSchema.png" alt="Draft diagram" width="400" height="400">
