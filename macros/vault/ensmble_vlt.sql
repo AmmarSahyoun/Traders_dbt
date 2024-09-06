@@ -7,7 +7,19 @@
 
     {%- set source_model = ref(source_model) -%}
 
-    {#-- Select columns from the source --#}
-    {%- set all_source_columns = source_columns(source_relation=source_model) -%}
+    {%- set all_source_columns = vault.source_columns(source_relation=source_model) -%}
 
-   
+    {%- set final_columns_to_select = [] -%}
+
+    {%- if include_source_columns -%}
+        {%- set final_columns_to_select = final_columns_to_select + all_source_columns -%}
+    {%- endif -%}
+
+    {%- if null_columns is not none -%}
+        {%- set final_columns_to_select = final_columns_to_select + null_columns | list -%}
+    {%- endif -%}
+
+    {%- if derived_columns is not none -%}
+        {%- set final_columns_to_select = final_columns_to_select + derived_columns | list -%}
+    {%- endif -%}
+
