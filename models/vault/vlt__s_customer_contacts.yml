@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: vlt__s_customer_contacts
+    config:
+      enabled: true
+      materialized: table
+      unique_key: [h_customer_main_key]
+    meta:
+      owner: Logistics
+      model_maturity: development
+      contains_pii: true
+    description: vault-sat for customer contacts
+    columns:
+      - name: h_customer_main_key
+        tests:
+          - unique
+          - not_null
+      - name: company
+      - name: last_name

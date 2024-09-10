@@ -8,19 +8,21 @@
 
   with source as (
     select
+      -- Generate the hub key using the natural key and the transformation logic
       ('x' || substr(md5(coalesce(nullif(upper(trim(cast({{ natural_key }} as varchar))), ''), '~~')), 1, 16))::bit(64)::bigint as {{ hub_key }},
+      
+      -- Add the effective_dttm column
       {{ effective_dttm }} as effective_dttm,
 
       -- Iterate over the columns and apply aliasing if provided
       {% for column in source_columns %}
-        {{ column['SOURCE_COLUMN_NAME'] }} as {{ column['TARGET_COLUMNS_NAME'] }},
+        {{ column.s }} as {{ column.t }}{% if not loop.last %},{% endif %}
       {% endfor %}
 
-      from {{ source_model }}
+    -- Source from the model_name
+    from {{ source_model }}
   )
 
- 
-  select 
-    * 
-  from source
+  -- Materialize the satellite table with the generated SQL
+  select * from source
 {% endmacro %}
