@@ -37,7 +37,7 @@ files = [
 [[package]]
 name = "aiohttp"
 version = "3.10.3"
-description = "async http client/server framework (asyncio)"
+description = "Async http client/server framework (asyncio)"
 optional = false
 python-versions = ">=3.8"
 files = [
@@ -647,7 +647,7 @@ test = ["coverage", "mypy", "pexpect", "ruff", "wheel"]
 [[package]]
 name = "asgiref"
 version = "3.8.1"
-description = "asGI specs, helper code, and adapters"
+description = "ASGI specs, helper code, and adapters"
 optional = false
 python-versions = ">=3.8"
 files = [
@@ -1177,13 +1177,13 @@ test = ["hypothesis (>=6.87,<7.0)", "pytest (>=7.3,<8.0)", "pytest-cov (>=4.1,<5
 
 [[package]]
 name = "dbt-core"
-version = "1.8.5"
+version = "1.8.6"
 description = "With dbt, data analysts and engineers can build analytics the way engineers build applications."
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "dbt_core-1.8.5-py3-none-any.whl", hash = "sha256:194f0bd5d5b83b3324f9ab50d6b675b8ddfe9bf2e5d7b6c8e677fa0df92a8470"},
-    {file = "dbt_core-1.8.5.tar.gz", hash = "sha256:f22a9212a9b7d223a0ba36af0dc138ed844227462c2ca1a42f2aabf6ec412c91"},
+    {file = "dbt_core-1.8.6-py3-none-any.whl", hash = "sha256:a0d7187ff69615613f091b48909b3ab719def643e7ccb74670f76dd482b4933c"},
+    {file = "dbt_core-1.8.6.tar.gz", hash = "sha256:a155573745b62c892950b20fb8c4947844fa32ccced89d1cea4f5c81e11438b9"},
 ]
 
 [package.dependencies]
@@ -4799,4 +4799,4 @@ test = ["big-O", "importlib-resources", "jaraco.functools", "jaraco.itertools", 
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10,<3.13"
-content-hash = "b7a9daf7b2fe3e015913a005fc9fdb2c40d21cb316242087a6c3fd043e67cfd4"
+content-hash = "590108204097ed6b98ee7a6fad0838eb63355683e760e2b8375ffe99b06fe578"

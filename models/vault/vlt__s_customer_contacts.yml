@@ -6,10 +6,6 @@ models:
       enabled: true
       materialized: table
       unique_key: [h_customer_main_key]
-    meta:
-      owner: Logistics
-      model_maturity: development
-      contains_pii: true
     description: vault-sat for customer contacts
     columns:
       - name: h_customer_main_key
