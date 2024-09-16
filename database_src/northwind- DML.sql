@@ -636,4 +636,24 @@ insert into strings (string_id, string_data) values (113, 'Fill back ordered pro
 insert into strings (string_id, string_data) values (114, 'Purchase generated based on Order #|');
 # 62 records
 
+# --------------------------------Adding load_dt to tables -------------------------
+#
+#
+alter table dbo.customers add column load_dt timestamp;
 
+update dbo.customers 
+set load_dt = '2017-08-17 16:16:16'
+where load_dt is null;
+#
+alter table dbo.employees add column load_dt timestamp;
+
+update dbo.employees 
+set load_dt = '2017-08-17 16:16:16'
+where load_dt is null;
+#
+alter table dbo.inventory_transactions add column load_dt timestamp;
+
+update dbo.inventory_transactions 
+set load_dt = '2017-08-17 16:16:16'
+where load_dt is null;
+#
