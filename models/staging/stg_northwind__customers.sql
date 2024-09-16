@@ -34,7 +34,7 @@ select
   attachments,
   '{{ invocation_id }}' batch_id,
   'db' as source_data,
-  current_timestamp::timestamp(0) as load_dt
+  load_dt as load_dt
 from latest
 where id is not null   
 

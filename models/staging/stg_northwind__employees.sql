@@ -32,7 +32,8 @@ privleged as (
     l.web_page,
     l.notes,
     l.attachments,
-    p.privilege_name
+    p.privilege_name,
+    l.load_dt
   from latest as l
   left join {{ ref('constant_seed__employee_privilieges') }} as ep
   on l.id = ep.employee_id
@@ -45,6 +46,5 @@ privleged as (
 select
   *,
   '{{ invocation_id }}' as batch_id,
-  'db' as source_data,
-  current_timestamp::timestamp(0) as load_dt
+  'db' as source_data
 from privleged

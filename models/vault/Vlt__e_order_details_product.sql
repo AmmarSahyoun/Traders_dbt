@@ -29,7 +29,7 @@ with vault_prep as (
     date_allocated::date,
     'staging' as md_source,
     '{{ invocation_id }}' as md_batch,
-    current_timestamp::timestamp(0) as md_load_dt
+    load_dt as md_load_dt
   from
    {{ ref('stg_northwind__order_details') }}
 ),
@@ -45,7 +45,7 @@ vlt_ensemble as (
       'h_product_key', h_product_key,
       'h_order_key', h_order_key
     ) as l_order_details_product,
-    date_allocated as effective_dt,
+    md_load_dt as effective_dt,
     jsonb_build_object('quantity', quantity, 'unit_price', unit_price, 'discount', discount
     ) as s_order_details_product,
     md_source,
