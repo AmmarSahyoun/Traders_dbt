@@ -645,15 +645,51 @@ update dbo.customers
 set load_dt = '2017-08-17 16:16:16'
 where load_dt is null;
 #
+
 alter table dbo.employees add column load_dt timestamp;
 
 update dbo.employees 
 set load_dt = '2017-08-17 16:16:16'
 where load_dt is null;
 #
+
 alter table dbo.inventory_transactions add column load_dt timestamp;
 
 update dbo.inventory_transactions 
 set load_dt = '2017-08-17 16:16:16'
 where load_dt is null;
 #
+
+alter table dbo.order_details add column load_dt timestamp;
+
+update dbo.order_details 
+set load_dt = '2017-08-17 16:16:16'
+where load_dt is null;
+#
+
+alter table dbo.orders add column load_dt timestamp;
+
+update dbo.orders 
+set load_dt = '2017-08-17 16:16:16'
+where load_dt is null;
+#
+
+alter table dbo.products add column load_dt timestamp;
+
+update dbo.products 
+set load_dt = '2017-08-17 16:16:16'
+where load_dt is null;
+#
+
+alter table dbo.purchase_orders add column load_dt timestamp;
+
+update dbo.purchase_orders 
+set load_dt = '2017-08-17 16:16:16'
+where load_dt is null;
+#
+
+alter table dbo.suppliers add column load_dt timestamp;
+
+update dbo.suppliers 
+set load_dt = '2017-08-17 16:16:16'
+where load_dt is null;

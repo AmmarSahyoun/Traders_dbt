@@ -29,7 +29,7 @@ with vault_prep as (
     notes,
     'staging' as md_source,
     '{{ invocation_id }}' as md_batch,
-    current_timestamp::timestamp(0) as md_load_dt
+    load_dt as md_load_dt
   from
    {{ ref('stg_northwind__orders') }}
 ),
