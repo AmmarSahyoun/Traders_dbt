@@ -10,21 +10,21 @@ sources:
     md_record_source: staging
     effective_dttm: load_dt
     columns:
-      - src: address 
+      - s: address 
         t: address  
-      - src: city
+      - s: city
         t: city
-      - src: state_province
+      - s: state_province
         t: province
-      - src: zip_postal_code
+      - s: zip_postal_code
         t: zip_code
-      - src: country_region
+      - s: country_region
         t: country
-      - src: web_page
+      - s: web_page
         t: web_page
-      - src: notes
+      - s: notes
         t: notes
-      - src: attachments
+      - s: attachments
         t: attachments
 
 {%- endset %}

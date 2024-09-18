@@ -10,19 +10,19 @@ sources:
     md_record_source: staging
     effective_dttm: load_dt
     columns:
-      - src: company
+      - s: company
         t: company  
-      - src: last_name
+      - s: last_name
         t: last_name
-      - src: first_name
+      - s: first_name
         t: first_name
-      - src: email_address
+      - s: email_address
         t: email
-      - src: job_title
+      - s: job_title
         t: job_title
-      - src: business_phone
+      - s: business_phone
         t: business_phone
-      - src: mobile_phone
+      - s: mobile_phone
         t: mobile
 
 {%- endset %}
