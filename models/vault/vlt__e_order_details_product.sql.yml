@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: Vlt__e_order_details_product
+  - name: vlt__e_order_details_product
     config:
       enabled: true
       materialized: table

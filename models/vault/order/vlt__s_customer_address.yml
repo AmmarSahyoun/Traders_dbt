@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: vlt__s_customer_address
+    config:
+      enabled: true
+      materialized: table
+      unique_key: [h_customer_main_key]
+    description: vault-sat for customer address
+    columns:
+      - name: h_customer_main_key
+        tests:
+          - unique
+          - not_null
+      - name: address
+      - name: city
+      - name: province
+      - name: zip_code
+      - name: country
+      - name: web_page
+      - name: notes
+      - name: attachments

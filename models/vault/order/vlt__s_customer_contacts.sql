@@ -1,6 +1,6 @@
 {% set metadata_sat -%}   
 target:  
-  satellite_table_name: sat_customers
+  satellite_table_name: sat_customers_contacts
   hub_key: h_customer_main_key
   natural_key: customer_id
 

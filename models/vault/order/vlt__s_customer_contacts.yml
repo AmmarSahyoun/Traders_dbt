@@ -14,3 +14,8 @@ models:
           - not_null
       - name: company
       - name: last_name
+      - name: first_name
+      - name: email
+      - name: job_title
+      - name: business_phone
+      - name: mobile
