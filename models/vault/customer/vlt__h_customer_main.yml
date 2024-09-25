@@ -4,7 +4,7 @@ models:
   - name: vlt__h_customer_main
     config:
       enabled: true
-      materialized: table
+      materialized: incremental
       unique_key: [h_customer_key]
       tags:
         - logistic
