@@ -1,5 +1,4 @@
-{% macro hub(metadata) %}
---After initial load we can leverage incremental materialization
+{% macro hub_init_load(metadata) %}
 
   {%- set target_metadata = metadata['target'] if 'target' in metadata else {} %}
   {%- set hub_key = target_metadata.get('hub_key', '') %}
@@ -13,17 +12,7 @@
     {{ exceptions.raise_compiler_error("No source model defined in metadata!") }}
   {% endif %}
 
-  {{ config(materialized='incremental', unique_key = natural_key)}}
-
-  with hash_key as (
-    select
-      {{ hashed_key(natural_key) }} as {{ hub_key }},
-      {{ natural_key }},
-      load_dt
-    from {{ source_model }}
-  ), 
-
-  with hub as (
+   with hub as (
     select
       {{ hashed_key(natural_key) }} as {{ hub_key }},
       {{ natural_key }},  
@@ -42,10 +31,5 @@ select
   md_batch,
   md_load_dt
 from hub
-
-
-{% if is_incremental() %}
-  where load_dt > (select max(md_load_dt::timestamp) from {{this}}) -- Comparing load_dt from source with max(md_load_dt) from hub
-{% endif %}
 
 {% endmacro %}

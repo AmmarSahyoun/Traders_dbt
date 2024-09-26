@@ -12,4 +12,4 @@ sources:
 
 {%- endset %}
 
-{{ hub(fromyaml(metadata_hub)) }}
+{{ hub_init_load(fromyaml(metadata_hub)) }}
