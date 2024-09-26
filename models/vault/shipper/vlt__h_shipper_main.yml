@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: vlt__h_shipper_main
+    config:
+      enabled: true
+      materialized: table
+      unique_key: [h_shipper_key]
+      tags:
+        - logistic
+        - Traders
+    meta:
+      owner: logistic
+      model_maturity: development
+      contains_pii: yes
+
+    description: ""
+    columns:
+      - name: h_shipper_key
+      - name: shipper_id
+      - name: md_record_source
+      - name: md_batch
+      - name: md_load_dt

@@ -1,0 +1,81 @@
+version: 2
+
+models:
+  - name: stg_northwind__shippers
+    config: 
+      enabled: true
+      materialized: view
+      tags:
+        - Traders
+        - shippers      
+      meta:
+        owner: Traders
+        model_maturity: pre_release
+
+    description: Model for shippers
+    columns:
+      - name: shipper_id
+        description: "shipper unique identifier"
+        data_tests:
+            - unique
+            - not_null
+
+      - name: company
+        description: "company name"
+
+      - name: last_name
+        description: "pii"
+
+      - name: first_name
+        description: "pii"
+
+      - name: email_address
+        description: ""
+
+      - name: job_title
+        description: ""
+
+      - name: business_phone
+        description: ""
+
+      - name: home_phone 
+        description: "pii"
+
+      - name: mobile_phone
+        description: "pii"
+
+      - name: fax_number
+        description: ""
+
+      - name: address
+        description: ""
+
+      - name: city
+        description: ""
+
+      - name: state_province
+        description: ""
+
+      - name: zip_postal_code
+        description: ""
+
+      - name: country_region
+        description: ""
+
+      - name: web_page
+        description: ""
+
+      - name: notes
+        description: ""
+
+      - name: attachments
+        description: ""
+
+      - name: batch_id
+        description: "The batch identifier"
+
+      - name: source_data
+        description: "The source of the data"
+
+      - name: load_dt
+        description: "Date and time of loading data into this table"
