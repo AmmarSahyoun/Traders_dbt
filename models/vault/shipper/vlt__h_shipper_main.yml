@@ -1,11 +1,11 @@
 version: 2
 
 models:
-  - name: vlt__h_customer_main
+  - name: vlt__h_shipper_main
     config:
       enabled: true
       materialized: table
-      unique_key: [h_customer_key]
+      unique_key: [h_shipper_key]
       tags:
         - logistic
         - Traders
@@ -16,8 +16,8 @@ models:
 
     description: ""
     columns:
-      - name: h_customer_key
-      - name: customer_id
+      - name: h_shipper_key
+      - name: shipper_id
       - name: md_record_source
       - name: md_batch
       - name: md_load_dt

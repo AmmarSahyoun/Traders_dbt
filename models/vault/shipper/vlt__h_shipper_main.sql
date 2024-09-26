@@ -1,13 +1,13 @@
 {% set metadata_hub -%}
 target:
-  hub_key: h_customer_key
-  natural_key: customer_id
+  hub_key: h_shipper_key
+  natural_key: shipper_id
   record_source: staging
   
 sources:
-  - model_name: staging.stg_northwind__customers
+  - model_name: staging.stg_northwind__shippers
     natural_keys:
-      - customer_id
+      - shipper_id
 
 
 {%- endset %}
