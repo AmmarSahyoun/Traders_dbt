@@ -1,66 +1,36 @@
-with vault_prep as (
-  select
-    order_id,
-    customer_id,
-    cast(
-      ('x' || substr(md5(
-        coalesce(nullif(upper(trim(cast(order_id as varchar))), ''),'~~') || '##' || 
-        coalesce(nullif(upper(trim(cast(customer_id as varchar))), ''), '~~')
-            ), 1, 16))::bit(64)::bigint
-        as bigint
-        ) as h_order_customer_key,
-    coalesce(nullif(upper(trim(cast(order_id as varchar))), ''), '~~') || '##' || 
-    coalesce(nullif(upper(trim(cast(customer_id as varchar))), ''), '~~') 
-          as order_customer_id,
-    cast(
-      ('x' || substr(md5(coalesce(nullif(upper(trim(cast(customer_id as varchar))), ''), '~~')
-            ), 1, 16))::bit(64)::bigint
-        as bigint
-         ) as h_customer_key,
-    cast(
-      ('x' || substr(md5(coalesce(nullif(upper(trim(cast(order_id as varchar))), ''), '~~')
-            ), 1, 16))::bit(64)::bigint
-        as bigint
-         ) as h_order_key,
-    order_date::date as order_date,
-    order_date as effective_dt,
-    status_name as order_status,
-    shipped_date::date,
-    notes,
-    'staging' as md_source,
-    '{{ invocation_id }}' as md_batch,
-    load_dt as md_load_dt
-  from
-   {{ ref('stg_northwind__orders') }}
-),
+{% set metadata_ensemble -%}
+target:
+  ensemble:
+    name: vlt__e_order_customer
+    partition_column: 
+  hub:
+    key: h_order_customer_key
+    id: order_customer_id
+  link:
+    key:
+      - [h_order_key, h_customer_key]
+  satellite:
+    effective_dttm: load_dt
+    attributes:
+      - trg: order_date
+        src: order_date
+      - trg: order_status
+        src: status_name
+      - trg: shipped_date
+        src: shipped_date
 
-
-vlt_ensemble as (
-  select
-    jsonb_build_object(
-      'h_order_customer_key', h_order_customer_key,
-      'order_customer_id', order_customer_id
-    ) as h_order_customer,
-    jsonb_build_object(
-      'h_customer_key', h_customer_key,
-      'h_order_key', h_order_key
-    ) as l_order_customer,
-    jsonb_build_object('effective_dt,', effective_dt, 'order_date', order_date, 'order_status', order_status, 'shipped_date', shipped_date,
-      'notes', notes
-    ) as s_order_customer,
-    md_source,
-    md_batch,
-    md_load_dt
-  from vault_prep
-)
-
-
-select
-  h_order_customer,
-  l_order_customer,
-  s_order_customer,
-  md_source,
-  md_batch,
-  md_load_dt
-from vlt_ensemble
-where 1 = 1
+sources:
+  - model_name: staging.stg_northwind__orders
+    hub:
+      natural_keys:
+        - order_id
+        - customer_id
+    link:
+      hub_natural_keys:
+        - [order_id]
+        - [customer_id]   
+    partition_column: 
+    md_record_source: staging
+    incremental: true
+{%- endset %}
+{{- ensemble(fromyaml(metadata_ensemble)) }}

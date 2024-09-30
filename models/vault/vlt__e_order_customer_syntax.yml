@@ -1,0 +1,42 @@
+version: 2
+
+models:
+  - name: vlt__e_order_customer
+    config:
+      enabled: true
+      materialized: table
+      tags:
+        - logistic
+        - customer
+        - order
+    meta:
+      owner: Traders logistic
+      model_maturity: development
+      contains_pii: false
+
+    description: "vault ensemble for order-customer"
+    columns:
+      - name: h_order_customer.h_order_customer_key
+      - name: h_order_customer.order_customer_id
+        description: "Id containing order info for each customer"
+      - name: l_order_customer.h_customer_key
+        description: "link key to customer hub"
+      - name: l_order_customer.h_order_key
+        description: "link key to order hub"
+      - name: s_order_details_product.effective_dt
+        description: "effective datetime"
+      - name: s_order_details_product.order_date
+        description: "order date"
+      - name: s_order_details_product.order_status
+        description: ""
+      - name: s_order_details_product.shipped_date
+        description: ""
+      - name: s_order_details_product.notes
+        description: ""
+      - name: md_source
+        description: "source metadata"
+      - name: md_batch
+        description: "metadata Id for auditing"
+      - name: md_load_dt
+        description: "metadata load datetime"
+  
