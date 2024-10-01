@@ -7,7 +7,7 @@ target:
     key: h_order_customer_key
     id: order_customer_id
   link:
-    key:
+    keys:
       - [h_order_key, h_customer_key]
   satellite:
     effective_dttm: load_dt

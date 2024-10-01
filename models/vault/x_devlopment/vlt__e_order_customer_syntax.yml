@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: vlt__e_order_customer
+  - name: vlt__e_order_customer_syntax
     config:
       enabled: true
       materialized: table
