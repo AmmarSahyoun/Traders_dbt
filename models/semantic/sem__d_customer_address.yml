@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: sem__d_customer_address
+    config: 
+      enabled: true 
+      materialized: table
+      tags: 
+        - logistics
+        - Traders
+    meta: 
+      owner: Traders
+      model_maturity: development
+      contains_pii: true
+
+    description: Dimensional table for customer address
+    columns:
+
+      - name: d_customer_key
+        description: "Key of customer_id"
+        tests:
+          - not_null
+
+      - name: customer_id
+        description: "Identifier for a customer"
+        tests:
+          - not_null
+
+      - name: country
+        description: ""
+
+      - name: city
+        description: "Id of the transport office logistic unit"
+
+      - name: address
+        description: "Key of logistic unit"
+
+      - name: zip_code
+        description: "Id of the actual logistic unit that belongs to one of the transport offices"
+
+      - name: md_record_source
+        description: ""
+
+      - name: md_load_dt
+        description: ""
+
+      - name: md_batch
+        description: ""

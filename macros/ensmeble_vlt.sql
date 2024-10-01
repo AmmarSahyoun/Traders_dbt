@@ -1,7 +1,6 @@
 {% macro ensemble(metadata) %}
     {%- set target_metadata = metadata.target %}
     {%- set hub_metadata = target_metadata.hub %}
-    {%- set link_metadata = target_metadata.link %}
     {%- set satellite_metadata = target_metadata.satellite %}
     {%- set sources_metadata = metadata.sources[0] %}
     
