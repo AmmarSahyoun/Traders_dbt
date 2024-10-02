@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: vlt__h_employee_main
+    config:
+      enabled: true
+      materialized: table
+      unique_key: [h_employee_key]
+      tags:
+        - logistic
+        - Traders
+    meta:
+      owner: logistic
+      model_maturity: development
+      contains_pii: yes
+
+    description: ""
+    columns:
+      - name: h_employee_key
+      - name: employee_id
+      - name: md_record_source
+      - name: md_batch
+      - name: md_load_dt
