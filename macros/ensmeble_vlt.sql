@@ -9,8 +9,13 @@
     
     with preparation as (
         select
-            {{ concat_natural_keys(hub_natural_keys) }} as {{ hub_metadata.id }},
-            {{ hashed_key(concat_natural_keys(hub_natural_keys)) }} as {{ hub_metadata.key }},
+            {% if hub_natural_keys | length == 1 %}
+                {{ hub_natural_keys[0] }} as {{ hub_metadata.id }},
+                {{ hashed_key(hub_natural_keys[0]) }} as {{ hub_metadata.key }},
+            {% else %}
+                {{ concat_natural_keys(hub_natural_keys) }} as {{ hub_metadata.id }},
+                {{ hashed_key(concat_natural_keys(hub_natural_keys)) }} as {{ hub_metadata.key }},
+            {% endif %}
             {% for natural_key in link_hub_natural_keys %}
                 {%- set hashed_key_name = 'h_' ~ natural_key[0] | replace('_id', '_key') %}
                 {{ hashed_key(natural_key[0]) }} as {{ hashed_key_name }}{% if not loop.last %},{% endif %}

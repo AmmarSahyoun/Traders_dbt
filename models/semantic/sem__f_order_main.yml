@@ -1,0 +1,74 @@
+version: 2
+
+models:
+  - name: sem__f_order_main
+    config:
+      enabled: true
+      materialized: incremental
+      unique_key: [f_order_main_key]
+      partition_by:
+        field: 
+        data_type: date
+        granularity: day
+      tags:
+        - Traders      
+    meta:
+      owner: Traders
+      model_maturity: development
+      contains_pii: yes
+
+    description: "Order Fact table with its related dimensions keys"
+    columns:
+      - name: f_order_main_key
+        description: "Order unique key"
+
+      - name: order_main_id
+        description: "Order business key"
+
+      - name: d_shipper_key
+        description: "key to shipper main"
+
+      - name: shipper_id
+        description: shipper main identifier"
+
+      - name: d_customer_key
+        description: "key for customer"        
+
+      - name: customer_id
+        description: "customer identifier"
+
+      - name: d_employee_key
+        description: "key for employee"
+
+      - name: employee_id
+        description: "employee identifier"
+
+      - name: order_date
+        description: "the date of the order"
+
+      - name: order_status
+        description: "the order status"
+
+      - name: payment_type
+        description: "type of the payment"
+
+      - name: paid_date
+        description: "payment date"
+      
+      - name: tax_status_name
+        description: "name of the tax"
+
+      - name: taxes
+        description: "value of the tax"
+
+      - name: tax_rate
+        description: "tax percentage"
+
+      - name: md_source
+        description: "source name"
+
+      - name: md_batch
+        description: "audit identifier"
+
+      - name: md_load_dt
+        description: "uploading timestamp"

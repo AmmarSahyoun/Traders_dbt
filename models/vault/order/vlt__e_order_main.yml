@@ -1,0 +1,53 @@
+version: 2
+
+models:
+  - name: vlt__e_order_main
+    config:
+      enabled: true
+      materialized: table
+      tags:
+        - logistic
+        - Traders
+    meta:
+      owner: Traders logistic
+      model_maturity: development
+      contains_pii: false
+
+    description: "vault ensemble for order main"
+    columns:
+      - name: h_order_main.h_order_main_key
+      - name: h_order_main.order_main_id
+        description: "Id containing order info"
+      - name: l_order_main.h_customer_main_key
+        description: "link key to customer hub"
+      - name: l_order_main.h_shipper_key
+        description: "link key to shipper hub"
+      - name: l_order_main.h_employee_key
+        description: "link key to employee hub"
+      - name: s_order_details_product.order_date
+        description: "order date"
+      - name: s_order_details_product.order_status
+        description: ""
+      - name: s_order_details_product.payment_type
+        description: ""
+      - name: s_order_details_product.paid_date
+        description: ""        
+      - name: s_order_details_product.shipped_date
+        description: ""  
+      - name: s_order_details_product.taxes
+        description: ""  
+      - name: s_order_details_product.tax_status_name
+        description: ""  
+      - name: s_order_details_product.tax_rate
+        description: ""  
+      - name: s_order_details_product.status_name
+        description: ""                                                 
+      - name: s_order_details_product.notes
+        description: ""
+      - name: md_source
+        description: "source metadata"
+      - name: md_batch
+        description: "metadata Id for auditing"
+      - name: md_load_dt
+        description: "metadata load datetime"
+  
