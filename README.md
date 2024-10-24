@@ -1,5 +1,5 @@
 # Traders
-- A modern data warehouse derived from a web-platform [database][database_src].
+- A modern data warehouse derived from a web-platform [relational database][database_src].
 - This tutorial project implemented locally using WSL ubuntu and postgresql as a dev-layer.
 - The postgresql database "Traders" holds several schemas layers 'dataset' for the source database and for the target data warehouse.
 - Some small tables from the source database have been replaced with seed constant data and others have been denormalized.
@@ -8,12 +8,13 @@
 <img src="https://github.com/AmmarSahyoun/dbt_traders/blob/main/assets/architecture.png" alt="Draft diagram" width="800" height="400">
 
 ## Traders Data warehouse layers
-1. Source [database] tables.
+1. Source [relational database][database_src].
 2. Staging layer contains dbt denormalized view models 'stg_'
-3. Vault layer where data vault modelling is implemented'vlt_'
-4. Semantic layer where the fact and dimension tables creating star schema models 'sem_'
+3. Vault layer, a data vault modelling is implemented'vlt_'
 
 <img src="https://github.com/AmmarSahyoun/dbt_traders/blob/main/assets/v_order_customer.png" alt="Draft diagram" width="400" height="400">
+
+4. Semantic layer, fact and dimension tables representing a star schema models 'sem_'
 <img src="https://github.com/AmmarSahyoun/dbt_traders/blob/main/assets/starSchema.png" alt="Draft diagram" width="400" height="400">
 
 

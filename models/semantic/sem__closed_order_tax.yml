@@ -1,0 +1,69 @@
+version: 2
+
+models:
+  - name: sem__closed_order_tax
+    config: 
+      enabled: true
+      materialized: table
+      tags:
+        - Traders
+        - closed      
+      meta:
+        owner: Traders
+        model_maturity: pre_release
+
+    description: Model for closed orders
+    columns:
+      - name: f_order_main_key
+        description: "Unique hashed identifier for each order."
+        data_tests:
+            - unique
+            - not_null
+
+      - name: order_main_id
+        description: "Unique identifier for each order "
+
+      - name: d_shipper_key
+        description: "hashed shipper id"
+
+      - name: d_customer_key
+        description: "hashed customer id"
+
+      - name: d_employee_key
+        description: "hashed employee id"
+
+      - name: order_date
+        description: ""
+
+      - name: order_status
+        description: ""
+
+      - name: payment_type 
+        description: ""
+
+      - name: tax_status_name
+        description: ""
+
+      - name: taxes
+        description: ""
+
+      - name: tax_rate
+        description: ""
+
+      - name: country
+        description: ""    
+
+      - name: total_tax
+        description: ""    
+
+      - name: closed_order
+        description: ""
+
+      - name: md_batch
+        description: "Date and time of loading data into this table"
+
+      - name: md_source
+        description: "Date and time of loading data into this table"
+      
+      - name: md_load_dt
+        description: "Date and time of loading data into this table"
